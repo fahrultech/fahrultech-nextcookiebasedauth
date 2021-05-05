@@ -1,14 +1,16 @@
 import { useState } from "react";
+import axios from 'axios'
 
 const Register = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-};
 
-const handleSubmit = (e) => {};
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.table({name, email, password})
+  };
 
-const Register = () => {
   return (
     <>
       <h1 class="jumbotron text-center bg-primary square">Register</h1>
@@ -22,6 +24,23 @@ const Register = () => {
             placeholder="Enter name"
             required
           />
+          <input
+            type="email"
+            className="form-control mb-4 p-4"
+            value={email}
+            onChange={e => setEmail(e.target.value)}
+            placeholder="Enter Email"
+            required
+          />
+          <input
+            type="password"
+            className="form-control mb-4 p-4"
+            value={password}
+            onChange={e => setPassword(e.target.value)}
+            placeholder="Enter Password"
+            required
+          />
+          <button type="submit" className="btn btn-block btn-primary">Submit</button>
         </form>
       </div>
     </>
